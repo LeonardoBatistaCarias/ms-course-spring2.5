@@ -39,7 +39,7 @@ public class BookController {
         var response = cambioProxy.getCambio(book.getPrice(), "USD", currency);
 
         var port = this.environment.getProperty("local.server.port");
-        book.setEnvironment(port);
+        book.setEnvironment("Book port: " + port + " Cambio Port " + response.getEnvironment());
         book.setPrice(response.getConvertedValue());
         return book;
     }
